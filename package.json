@@ -4,12 +4,19 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
     "file-saver": "^2.0.1",
     "node-webcam": "^0.4.6",
     "nodemon": "^1.18.11"
+=======
+    "@google-cloud/vision": "^0.25.0",
+    "express": "^4.16.4",
+    "file-saver": "^2.0.1",
+    "twilio": "^3.30.2"
+>>>>>>> ba2888899b629c6511e57488cc49a37c33d30403
   },
   "devDependencies": {},
   "scripts": {
