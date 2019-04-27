@@ -11,6 +11,4 @@ async function quickstart() {
     console.log('Labels:');
     labels.forEach(label => console.log(label.description));
   }
-quickstart();
-
-module.exports.quickstart = quickstart();
+  quickstart();
