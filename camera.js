@@ -26,6 +26,6 @@ function cameraStart() {
     //cameraOutput.src = cameraSensor.toDataURL("image/webp");
 
  
-}; */ 
+};  */
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);

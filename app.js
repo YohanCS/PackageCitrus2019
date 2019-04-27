@@ -1,6 +1,3 @@
-const express = require('express')
-const app = express()
-const port = 3000
 
 const express = require('express');
 const app = express();
@@ -9,6 +6,8 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const nodeWebCam = require('node-webcam');
 const fs = require('fs');
+const cv = require('opencv4nodejs');
+
 
 // specifying parameters for the pictures to be taken
 var options = {
@@ -26,7 +25,8 @@ var options = {
 var webcam = nodeWebCam.create(options);
 
 // capture function that snaps <amount> images and saves them with the given name in a folder of the same name
-var captureShot = (amount, i, name) => {
+
+var captureShot = setInterval(function(amount, i, name) {
     var path = `./images/${name}`;
 
     // create folder if and only if it does not exist
@@ -45,10 +45,10 @@ var captureShot = (amount, i, name) => {
             captureShot(amount, i, name);
         }
     });  
-};
+}, 2000);
+
 
 app.use(bodyParser.json());
-captureShot(1, 1, 'ga2ry');
 
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/index.html'));
@@ -57,6 +57,7 @@ app.get('/',function(req,res){
 
 app.post('/', function (req, res) {
     console.log('button clicked');
+    
   });
 
 app.use(express.static('./assets/css/images/'));
