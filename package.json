@@ -6,7 +6,8 @@
   "dependencies": {
     "@google-cloud/vision": "^0.25.0",
     "express": "^4.16.4",
-    "file-saver": "^2.0.1"
+    "file-saver": "^2.0.1",
+    "twilio": "^3.30.2"
   },
   "devDependencies": {},
   "scripts": {
