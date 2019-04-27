@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.16.4",
-    "file-saver": "^2.0.1"
+    "file-saver": "^2.0.1",
+    "nodemon": "^1.18.11"
   },
   "devDependencies": {},
   "scripts": {
