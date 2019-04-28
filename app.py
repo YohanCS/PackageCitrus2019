@@ -26,17 +26,22 @@ def detect_labels(path):
     #print('Labels:')
 
     regex = "red|luggage|bag"
+    boolRed = False
+    boolBag = False
     for label in labels:
         desc = label.description
-        if(desc == 'Bag' or desc == 'Red' or desc == 'Luggage'
-            or desc == 'Backpack'):
-            print("A match! Just texted the person with the bag")
+        desc
+        if(boolRed and boolBag):
             isamatch(True)
-            break;
+            return True
+        if(desc == 'Red'):
+            boolRed = True
+        elif(desc == 'Luggage' or desc == 'Bag' or desc == 'Backpack'):
+            boolBag = True
         #else:
             #print("aww not a match")
         #print(label.description)
-
+    return False
 def loggedIn():
     cam = cv2.VideoCapture(0)
 
@@ -63,7 +68,8 @@ def loggedIn():
         img_name = "luggage{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
         #print("{} written!".format(img_name))
-        detect_labels('luggage'+str(img_counter) + '.png')
+        if(detect_labels('luggage'+str(img_counter) + '.png')):
+            break
 
     cam.release()
 
