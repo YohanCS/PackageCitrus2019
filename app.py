@@ -4,7 +4,7 @@ from google.cloud import vision
 import io
 import re # for regular expressions in getting label 
 import time # for sleep
-from twil.py import isamatch
+from twil import isamatch
 
 app = Flask(__name__)
 
@@ -71,8 +71,11 @@ def loggedIn():
 
 @app.route('/', methods=['POST'])
 def parse_request():
-    loggedIn()
-    return render_template('index.html')
+    return render_template('login.html')
+
+@app.route('/login', methods=['POST'])
+def parse_log():
+    return render_template()
 
 if __name__ == "__main__":
     app.run(debug=True)

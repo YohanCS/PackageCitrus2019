@@ -7,6 +7,16 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 5fr, 1fr, 1fr;
+}
+
+.videoChild {
+	grod
+}
+
 .photoContainer {
 	margin: 0px auto;
 	display: flex;
@@ -17,6 +27,19 @@
 
 #camera--view {
 	justify-items: center;
+}
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+#page-wrapper {
+width: 100%;
+height: 100%;
+min-height:90%;
+min-width: 90%;
 }
 
 html, body, div, span, applet, object,
@@ -33,7 +56,7 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 100%;	
 	font: inherit;
 	vertical-align: baseline;}
 
@@ -2808,7 +2831,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #21b2a6;
+			background-image: url("../../images/blue.jpg");
 			color: #c8ece9;
 		}
 
@@ -2938,8 +2961,8 @@ input, select, textarea {
 			.wrapper.style1 input[type="button"],
 			.wrapper.style1 button,
 			.wrapper.style1 .button {
-				box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.125);
-				color: #ffffff;
+				box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.250);
+				color: white;
 			}
 
 				.wrapper.style1 input[type="submit"]:hover,
@@ -3428,7 +3451,14 @@ input, select, textarea {
 		-ms-transform: translateX(0);
 		transform: translateX(0);
 	}
-
+#camera  { 
+	margin: 0 auto;
+	width: 40%;
+ }
+ #bu  {
+ 	width: 30%;
+ 	margin: 0 auto;
+ }
 /* Header */
 
 	#header {
@@ -3954,8 +3984,7 @@ input, select, textarea {
 
 /* Landing */
 
-	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+	body.landing #page-wrapper 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
