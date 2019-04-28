@@ -4,6 +4,7 @@ from google.cloud import vision
 import io
 import re # for regular expressions in getting label 
 import time # for sleep
+from twil.py import isamatch
 
 app = Flask(__name__)
 
@@ -30,6 +31,7 @@ def detect_labels(path):
         if(desc == 'Bag' or desc == 'Red' or desc == 'Luggage'
             or desc == 'Backpack'):
             print("YAy a match!")
+            isamatch()
         #else:
             #print("aww not a match")
         #print(label.description)
