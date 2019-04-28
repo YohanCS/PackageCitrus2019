@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request
 import cv2
 from google.cloud import vision
+import io
 
 app = Flask(__name__)
-
-# key for Google Cloud Vision API
-export GOOGLE_APPLICATION_CREDENTIALS = './luggage.json'
-
 
 @app.route('/')
 def hello_world():
@@ -51,7 +48,9 @@ while True:
         img_name = "luggage{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
         print("{} written!".format(img_name))
-        detect_labels('luggage'+str(img_counter))
+        detect_labels('luggage'+str(img_counter) + '.png')
+        print()
+        print()
         img_counter += 1
 
 cam.release()
