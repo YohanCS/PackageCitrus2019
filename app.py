@@ -4,7 +4,7 @@ from google.cloud import vision
 import io
 import re # for regular expressions in getting label 
 import time # for sleep
-from twil.py import isamatch
+from twil import isamatch
 
 app = Flask(__name__)
 
@@ -30,8 +30,9 @@ def detect_labels(path):
         desc = label.description
         if(desc == 'Bag' or desc == 'Red' or desc == 'Luggage'
             or desc == 'Backpack'):
-            print("YAy a match!")
-            isamatch()
+            print("A match! Just texted the person with the bag")
+            isamatch(True)
+            break;
         #else:
             #print("aww not a match")
         #print(label.description)
@@ -51,7 +52,7 @@ def loggedIn():
         # of the stream 
         if not ret:
             break
-        k = cv2.waitKey(5000)
+        k = cv2.waitKey(500)
 
         #if k%256 == 27:
          #   # ESC pressed
@@ -61,9 +62,8 @@ def loggedIn():
             # SPACE pressed
         img_name = "luggage{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
-        print("{} written!".format(img_name))
+        #print("{} written!".format(img_name))
         detect_labels('luggage'+str(img_counter) + '.png')
-        img_counter += 1
 
     cam.release()
 
