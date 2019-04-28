@@ -5,6 +5,7 @@ import io
 import re # for regular expressions in getting label 
 import time # for sleep
 from twil import isamatch
+from faceCheck import faceCheck
 
 app = Flask(__name__)
 
@@ -75,9 +76,16 @@ def loggedIn():
 
     cv2.destroyAllWindows()
 
+def checkLogin():
+    faceCheck()
+    cv2.destroyAllWindows()
+    loggedIn()
+
+
 @app.route('/', methods=['POST'])
 def parse_request():
-    return render_template('login.html')
+    checkLogin()
+    return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def parse_log():
