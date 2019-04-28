@@ -22,7 +22,7 @@ while True:
     for(x,y,w,h) in faces:
         cv2.rectangle(im,(x,y),(x+w,y+h),(225,0,0),2)
         Id, conf = recognizer.predict(gray[y:y+h,x:x+w])
-        if(conf<50):
+        if(conf>50):
             if(Id==1):
                 Id="Anthony"
             elif(Id==2):
