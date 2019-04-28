@@ -23,44 +23,44 @@ def detect_labels(path):
     print('Labels:')
 
     for label in labels:
-        print(label.description)
+        print(label)
 
+def loggedIn():
+    cam = cv2.VideoCapture(0)
 
-cam = cv2.VideoCapture(0)
+    cv2.namedWindow("test")
 
-cv2.namedWindow("test")
+    img_counter = 0
 
-img_counter = 0
+    while True:
+        ret, frame = cam.read()
+        cv2.imshow("test", frame)
+        if not ret:
+            break
+        k = cv2.waitKey(1)
 
-while True:
-    ret, frame = cam.read()
-    cv2.imshow("test", frame)
-    if not ret:
-        break
-    k = cv2.waitKey(1)
+        if k%256 == 27:
+            # ESC pressed
+            print("Escape hit, closing...")
+            break
+        elif k%256 == 32:
+            # SPACE pressed
+            img_name = "luggage{}.png".format(img_counter)
+            cv2.imwrite(img_name, frame)
+            print("{} written!".format(img_name))
+            detect_labels('luggage'+str(img_counter) + '.png')
+            print()
+            print()
+            img_counter += 1
 
-    if k%256 == 27:
-        # ESC pressed
-        print("Escape hit, closing...")
-        break
-    elif k%256 == 32:
-        # SPACE pressed
-        img_name = "luggage{}.png".format(img_counter)
-        cv2.imwrite(img_name, frame)
-        print("{} written!".format(img_name))
-        detect_labels('luggage'+str(img_counter) + '.png')
-        print()
-        print()
-        img_counter += 1
+    cam.release()
 
-cam.release()
-
-cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
 
 @app.route('/', methods=['POST'])
 def parse_request():
-    data = request.data  # data is empty
-    # need posted data here
+    loggedIn()
     return render_template('index.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
